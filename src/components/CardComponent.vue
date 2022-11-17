@@ -1,6 +1,6 @@
 <template>
     <div class="vz_card col-12 col-sm-6 col-md-4 col-lg-3">
-        <img :src="imgUrl" :alt="(!!card.title) ? card.title : card.name">
+        <img :src="imgUrl" :alt="(!!card.title) ? card.title : card.name" :class="(!card.poster_path) ? 'poster-bool' : ''">
         <div class="text-white front-txt-card">
             <div class="fw-bold flag">
                 <span><img :src="lang" alt=""></span>
@@ -69,10 +69,20 @@
     height: 450px;
     max-height: 450px;
     margin-right: 20px;  
-    position: relative;
+    background-color: $black;
     cursor: pointer;
     overflow-y: hidden;
+    position: relative;
     transition: 1s;
+
+    .poster-bool {
+        width: 80%; 
+        height: 40%; 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
     .front-txt-card {
         position: absolute;
