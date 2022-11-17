@@ -60,7 +60,7 @@
                 }else if (lang == 'cs') {
                     lang = 'sk';
                 }
-                const flag = `https://www.countryflagicons.com/FLAT/48/${lang.toUpperCase()}.png`;
+                const flag = `https://www.countryflagicons.com/FLAT/32/${lang.toUpperCase()}.png`;
                 return flag
             }
         }
@@ -105,10 +105,14 @@
         transition-timing-function: ease-in-out;
 
         .flag{
-            width: 48px;
+            width: 32px;
         }
         .vz_stars{
             color: rgb(255, 170, 0);
+        }
+        
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
     &:hover {
@@ -120,9 +124,6 @@
             opacity: 1;
         }
     } 
-    .front-txt-card::-webkit-scrollbar {
-        display: none;
-    }
 }
 
 </style>
