@@ -2,8 +2,8 @@
     <div class="vz_card col-12 col-sm-6 col-md-4 col-lg-3">
         <img :src="imgUrl" :alt="(!!card.title) ? card.title : card.name">
         <div class="text-white front-txt-card">
-            <div class="fw-bold">
-                <span>Lang: {{language}}</span>
+            <div class="fw-bold flag">
+                <span><img :src="lang" alt=""></span>
             </div> 
             <div>
                 <span v-for="n in 5" class="fa-star vz_stars pe-1" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></span>
@@ -32,10 +32,6 @@
                 const imgUrl = (this.card.poster_path) ? `https://image.tmdb.org/t/p/w342/${this.card.poster_path}` : '/img/favicon.ico';
                 return imgUrl
             },
-            language(){
-                const language = this.card.original_language;
-                return language
-            },
             title(){
                 const title = (!!this.card.title) ? 'Title: ' + this.card.title : this.card.name;
                 return title
@@ -50,6 +46,16 @@
             },
             stars(){
                 return Math.floor(this.card.vote_average / 2);
+            },
+            lang(){
+                let lang = this.card.original_language;
+                if(lang == 'en'){
+                    lang = 'gb';
+                }else if(lang == 'ja'){
+                    lang = 'jp';
+                }
+                const flag = `https://www.countryflagicons.com/FLAT/48/${lang.toUpperCase()}.png`;
+                return flag
             }
         }
 
@@ -70,19 +76,21 @@
 
     .front-txt-card {
         position: absolute;
-        bottom: 0;
         top: 0;
         left:0;
-        right: 0;
+        height: 0;
         width: 100%;
-        padding: 10px;
+        padding: 18px;
         font-size: 15px;
         background-color:rgba(0, 0, 0, 0.67);
         overflow-y: auto;
         opacity: 0;
-        transition: opacity 1.5s;
+        transition: opacity 1s, height 2s;
         transition-timing-function: ease-in-out;
 
+        .flag{
+            width: 48px;
+        }
         .vz_stars{
             color: rgb(255, 170, 0);
         }
@@ -90,14 +98,12 @@
     &:hover {
         border-radius: 10px;
         .front-txt-card {
+            height: 100%;
             opacity: 1;
         }
     } 
     .front-txt-card::-webkit-scrollbar {
-        width: 5px;
-        height: 10px;
-        background-color: #aaa; 
-        border-radius: 5px;
+        display: none;
     }
 }
 
