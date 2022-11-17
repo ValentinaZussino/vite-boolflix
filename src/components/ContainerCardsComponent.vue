@@ -60,9 +60,22 @@ h2 {
 }
 section {
     // height: 45vh;
+    width: 97%;
+    margin: 0 auto;
     padding-bottom: 17px;
     @include dflex('center');
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
+}
+section::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    background-color: #aaa; 
+    border-radius: 5px;
+    visibility: hidden;
+
+    &:hover {
+        visibility: visible;
+    }
 }
 </style>

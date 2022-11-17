@@ -26,11 +26,13 @@
 @use '../assets/style/partials/variables' as *;
 @use '../assets/style/partials/mixins' as *;
 .vz_card {
-    min-height: 420px;
+    height: 450px;
+    max-height: 450px;
     margin-left: 10px;
     margin-right: 10px;  
     position: relative;
     cursor: pointer;
+    overflow-y: hidden;
 
     .front-txt-card {
         position: absolute;
@@ -42,10 +44,18 @@
         padding: 10px;
         font-size: 15px;
         background-color:rgba(0, 0, 0, 0.665);
+        overflow-y: auto;
         display: none;
     }
     &:hover .front-txt-card {
         display: block;
     }
+    .front-txt-card::-webkit-scrollbar {
+        width: 5px;
+        height: 10px;
+        background-color: #aaa; 
+        border-radius: 5px;
+    }
 }
+
 </style>
