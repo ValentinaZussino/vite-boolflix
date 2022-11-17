@@ -59,11 +59,10 @@ h2 {
     letter-spacing: 1.5px;
 }
 section {
-    // height: 45vh;
     width: 97%;
     margin: 0 auto;
     padding-bottom: 17px;
-    @include dflex('center');
+    @include dflex-base;
     flex-wrap: nowrap;
     overflow-x: auto;
 }

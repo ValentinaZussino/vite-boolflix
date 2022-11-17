@@ -3,7 +3,9 @@
         <img :src="(card.poster_path) ? `https://image.tmdb.org/t/p/w342/${card.poster_path}` : '/img/favicon.ico'" :alt="(!!card.title) ? card.title : card.name">
         <div class="text-white front-txt-card">
             <div v-html="'Lang: ' + card.original_language" class="fw-bold"></div> 
-            <div v-html="'Vote: ' + card.vote_average" class="fw-bold"></div>
+            <div>
+                <span v-for="n in 5" class="fa-star" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></span>
+            </div>
             <div v-html="(!!card.title) ? 'Title: ' + card.title : card.name" class="fw-bold"></div>
             <div v-html="(!!card.original_title) ? 'Original Title: ' + card.original_title : card.original_name"></div>
             <div class="mt-3">
@@ -18,7 +20,13 @@
 <script>
     export default {
         name: 'CardComponent',
-        props: ['card']
+        props: ['card'],
+        computed: {
+            stars(){
+                return Math.ceil(this.card.vote_average / 2);
+            }
+        }
+
     }
 </script>
 
@@ -28,8 +36,7 @@
 .vz_card {
     height: 450px;
     max-height: 450px;
-    margin-left: 10px;
-    margin-right: 10px;  
+    margin-right: 20px;  
     position: relative;
     cursor: pointer;
     overflow-y: hidden;
@@ -45,10 +52,12 @@
         font-size: 15px;
         background-color:rgba(0, 0, 0, 0.665);
         overflow-y: auto;
-        display: none;
+        opacity: 0;
+        transition: opacity 1.5s;
+        transition-timing-function: ease-in-out;
     }
     &:hover .front-txt-card {
-        display: block;
+        opacity: 1;
     }
     .front-txt-card::-webkit-scrollbar {
         width: 5px;
