@@ -9,7 +9,7 @@
                 <span v-for="n in 5" class="fa-star vz_stars pe-1" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></span>
             </div>
             <div>
-                <span class="fw-bold">{{title}}</span>
+                <span class="fw-bold fs-3">{{title}}</span>
             </div>
             <div>
                 <span>{{originalTitle}}</span>
@@ -53,6 +53,12 @@
                     lang = 'gb';
                 }else if(lang == 'ja'){
                     lang = 'jp';
+                }else if(lang == 'zh'){
+                    lang = 'cn';
+                }else if(lang == 'ko') {
+                    lang = 'kr';             
+                }else if (lang == 'cs') {
+                    lang = 'sk';
                 }
                 const flag = `https://www.countryflagicons.com/FLAT/48/${lang.toUpperCase()}.png`;
                 return flag
@@ -107,6 +113,8 @@
     }
     &:hover {
         border-radius: 10px;
+        transform: scale(1.2);
+        z-index: 300;
         .front-txt-card {
             height: 100%;
             opacity: 1;

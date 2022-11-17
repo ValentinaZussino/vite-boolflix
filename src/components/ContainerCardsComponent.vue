@@ -61,7 +61,7 @@ h2 {
 section {
     width: 97%;
     margin: 0 auto;
-    padding-bottom: 17px;
+    padding: 45px 0 45px 32px;
     @include dflex-base;
     flex-wrap: nowrap;
     overflow-x: auto;
