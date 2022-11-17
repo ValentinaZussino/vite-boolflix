@@ -1,8 +1,10 @@
 <template>
-  <HeaderComponent/>
-  <main>
-    <ContainerCardsComponent v-for="(el, index) in endpointsList" :endPoint="el"/>
-  </main>
+  <div class="main-wrapper">
+    <HeaderComponent/>
+    <main>
+      <ContainerCardsComponent v-for="(el, index) in endpointsList" :endPoint="el"/>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -20,5 +22,13 @@ import HeaderComponent from './components/HeaderComponent.vue';
 </script>
 
 <style lang="scss" scoped>
+.main-wrapper {
+  height: 100vh;
+  // overflow: hidden;
+
+  main {
+    padding-top: 70px;
+  }
+}
 
 </style>

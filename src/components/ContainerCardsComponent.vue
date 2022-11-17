@@ -1,5 +1,5 @@
 <template>
-    <div v-show="list.length" class="p-3">
+    <div v-show="list.length" class="p-4">
        <h2>{{sectionTitle}}</h2>
     </div>
     <section>
@@ -59,11 +59,10 @@ h2 {
     letter-spacing: 1.5px;
 }
 section {
-    min-height: 400px;
-    width: 90%;
-    margin: 0 auto;
-    padding: 25px 0;
+    // height: 45vh;
+    padding-bottom: 17px;
     @include dflex('center');
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
 }
 </style>

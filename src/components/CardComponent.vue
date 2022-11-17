@@ -1,6 +1,5 @@
 <template>
-    <div></div>
-    <div class="vz_card">
+    <div class="vz_card col-12 col-sm-6 col-md-4 col-lg-3">
         <img :src="(card.poster_path) ? `https://image.tmdb.org/t/p/w342/${card.poster_path}` : '/img/favicon.ico'" :alt="(!!card.title) ? card.title : card.name">
         <div class="text-white front-txt-card">
             <div v-html="'Lang: ' + card.original_language" class="fw-bold"></div> 
@@ -27,12 +26,11 @@
 @use '../assets/style/partials/variables' as *;
 @use '../assets/style/partials/mixins' as *;
 .vz_card {
-    width: 342px;
-    // min-height: 480px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    // background-color: $black;
+    min-height: 420px;
+    margin-left: 10px;
+    margin-right: 10px;  
     position: relative;
+    cursor: pointer;
 
     .front-txt-card {
         position: absolute;

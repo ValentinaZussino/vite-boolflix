@@ -44,6 +44,8 @@ header {
     height: 60px;
     padding: 10px;
     @include dflex('between');
+    position: fixed;
+    z-index: 1000;
 
     .left-header {
         @include dflex-base;
