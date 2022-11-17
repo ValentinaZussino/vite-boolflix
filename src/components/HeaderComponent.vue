@@ -4,7 +4,7 @@
         <div class="left-header">
             <!-- logo -->
             <div class="logo">
-                <img src="../../public/img/favicon.ico" alt="logo boolflix">
+                <img src="/img/favicon.ico" alt="logo boolflix">
             </div>
             <!-- nav -->
             <nav> 

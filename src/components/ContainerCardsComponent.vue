@@ -1,4 +1,7 @@
 <template>
+    <div v-show="list.length" class="p-3">
+       <h2>{{sectionTitle}}</h2>
+    </div>
     <section>
         <CardComponent v-for="(item, index) in list" :key="index" :card="item"/>
     </section>
@@ -33,6 +36,15 @@ import {store} from '../store'
             })
         }
     },
+    computed: {
+        sectionTitle(){
+            if(this.endPoint.includes('tv')){
+                return 'Serie TV'
+            }else if(this.endPoint.includes('movie')){
+                return 'Movies'
+            }
+        }
+    }
 }
 </script>
 
@@ -40,8 +52,13 @@ import {store} from '../store'
 @use '../assets/style/partials/variables' as *;
 @use '../assets/style/partials/mixins' as *;
 
+h2 {
+    color: $white;
+    font-weight: bold;
+    font-size: 2.3rem;
+    letter-spacing: 1.5px;
+}
 section {
-    border: 1px solid red;
     min-height: 400px;
     width: 90%;
     margin: 0 auto;
