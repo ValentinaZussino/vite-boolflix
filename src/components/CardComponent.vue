@@ -1,16 +1,22 @@
 <template>
     <div class="vz_card col-12 col-sm-6 col-md-4 col-lg-3">
-        <img :src="(card.poster_path) ? `https://image.tmdb.org/t/p/w342/${card.poster_path}` : '/img/favicon.ico'" :alt="(!!card.title) ? card.title : card.name">
+        <img :src="imgUrl" :alt="(!!card.title) ? card.title : card.name">
         <div class="text-white front-txt-card">
-            <div v-html="'Lang: ' + card.original_language" class="fw-bold"></div> 
+            <div class="fw-bold">
+                <span>Lang: {{language}}</span>
+            </div> 
             <div>
-                <span v-for="n in 5" class="fa-star" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></span>
+                <span v-for="n in 5" class="fa-star vz_stars pe-1" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></span>
             </div>
-            <div v-html="(!!card.title) ? 'Title: ' + card.title : card.name" class="fw-bold"></div>
-            <div v-html="(!!card.original_title) ? 'Original Title: ' + card.original_title : card.original_name"></div>
+            <div>
+                <span class="fw-bold">{{title}}</span>
+            </div>
+            <div>
+                <span>{{originalTitle}}</span>
+            </div>
             <div class="mt-3">
-                <span class="fw-bold">Description:</span>
-                <div v-html="card.overview" ></div>
+                <span class="fw-bold pb-1">Description:</span>
+                <div>{{overview}}</div>
             </div>
         </div>
     </div>
@@ -22,8 +28,28 @@
         name: 'CardComponent',
         props: ['card'],
         computed: {
+            imgUrl(){
+                const imgUrl = (this.card.poster_path) ? `https://image.tmdb.org/t/p/w342/${this.card.poster_path}` : '/img/favicon.ico';
+                return imgUrl
+            },
+            language(){
+                const language = this.card.original_language;
+                return language
+            },
+            title(){
+                const title = (!!this.card.title) ? 'Title: ' + this.card.title : this.card.name;
+                return title
+            },
+            originalTitle(){
+                const originalTitle = (!!this.card.original_title) ? 'Original Title: ' + this.card.original_title : this.card.original_name;
+                return originalTitle
+            },
+            overview(){
+                const overview = this.card.overview;
+                return overview
+            },
             stars(){
-                return Math.ceil(this.card.vote_average / 2);
+                return Math.floor(this.card.vote_average / 2);
             }
         }
 
@@ -40,6 +66,7 @@
     position: relative;
     cursor: pointer;
     overflow-y: hidden;
+    transition: 1s;
 
     .front-txt-card {
         position: absolute;
@@ -50,15 +77,22 @@
         width: 100%;
         padding: 10px;
         font-size: 15px;
-        background-color:rgba(0, 0, 0, 0.665);
+        background-color:rgba(0, 0, 0, 0.67);
         overflow-y: auto;
         opacity: 0;
         transition: opacity 1.5s;
         transition-timing-function: ease-in-out;
+
+        .vz_stars{
+            color: rgb(255, 170, 0);
+        }
     }
-    &:hover .front-txt-card {
-        opacity: 1;
-    }
+    &:hover {
+        border-radius: 10px;
+        .front-txt-card {
+            opacity: 1;
+        }
+    } 
     .front-txt-card::-webkit-scrollbar {
         width: 5px;
         height: 10px;
