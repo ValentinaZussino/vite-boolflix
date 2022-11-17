@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent/>
   <main>
-    <ContainerCardsComponent/>
+    <ContainerCardsComponent v-for="(el, index) in endpointsList" :endPoint="el"/>
   </main>
 </template>
 
@@ -10,7 +10,12 @@ import ContainerCardsComponent from './components/ContainerCardsComponent.vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 
   export default {
-    components: { HeaderComponent, ContainerCardsComponent }
+    components: { HeaderComponent, ContainerCardsComponent },
+    data(){
+      return {
+        endpointsList: ['/search/movie', '/search/tv']
+      }
+    }
 }
 </script>
 
