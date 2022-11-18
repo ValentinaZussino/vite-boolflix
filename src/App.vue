@@ -3,9 +3,7 @@
     <HeaderComponent/>
     <main>
       <VideoComponent v-if="!store.options.params.query"/>
-      
-        <ContainerCardsComponent v-else v-for="(el, index) in endpointsList" :endPoint="el"/>
-      
+      <ContainerCardsComponent v-else v-for="(el, index) in endpointsList" :endPoint="el"/>
     </main>
   </div>
 </template>
