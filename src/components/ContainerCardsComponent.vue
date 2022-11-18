@@ -57,7 +57,7 @@ h2 {
     font-weight: bold;
     font-size: 2.3rem;
     letter-spacing: 1.5px;
-    text-shadow: 4px 4px 3px rgb(35, 35, 35);
+    text-shadow: 4px 4px 3px $black;
 }
 section {
     width: 97%;

@@ -9,7 +9,7 @@
             <!-- nav -->
             <nav class="h-100"> 
                 <ul>
-                    <li class="text-white" v-for="(link, i) in store.navLinks" :key="i"><a href="">{{link}}</a></li>
+                    <li class="text-white" v-for="(link, i) in store.navLinks" :key="i"><a href="#">{{link}}</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,6 +45,7 @@ header {
     @include dflex('between');
     position: fixed;
     z-index: 1000;
+    box-shadow: 0px 2px 5px rgb(107, 107, 107) ;
 
     .left-header {
         @include dflex-base;
@@ -93,6 +94,12 @@ header {
         input, button {
             border-radius: 5px;
             text-transform: capitalize;
+        }
+
+        button:hover {
+            background-color: transparent;
+            border: 1px solid $title_red;
+            color: $title_red;
         }
     }
 }
