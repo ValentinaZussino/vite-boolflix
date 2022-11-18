@@ -8,12 +8,13 @@ export const store = reactive ({
             query: '',
         }
     },
-    atClick: true,
     navLinks: [
         'Home',
         'Serie TV',
         'Film',
         'Originali',
         'Aggiunti di recente'
-    ]
+    ],
+    atClick: false,
+    list: false
 })

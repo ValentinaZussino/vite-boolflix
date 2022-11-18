@@ -24,6 +24,7 @@ import {store} from '../store'
     watch: {
         'store.atClick'() {
             this.getApi();
+            // this.listControl();
         }
     },
     props: ['endPoint'],
@@ -34,7 +35,11 @@ import {store} from '../store'
                 this.list = [...res.data.results];
                 console.log(res.data.results);
             })
-        }
+        }, 
+        // listControl(){
+        //     console.log('ok')
+        //     store.list = true;
+        // }
     },
     computed: {
         sectionTitle(){
