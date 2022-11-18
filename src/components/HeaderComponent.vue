@@ -16,8 +16,8 @@
         
         <!-- right side -->
         <div class="right-header">
-            <input type="text" placeholder="Search Title" class="ps-2 py-1 me-2" @keyup.enter="store.atClick = !store.atClick" v-model="store.options.params.query">
-            <button class="btn btn-outline-light" @click="store.atClick = !store.atClick">search</button>
+            <input type="text" placeholder="Search Title" class="ps-2 py-1 me-2" @keyup.enter="search" v-model="text">
+            <button class="btn btn-outline-light" @click="search">search</button>
         </div>
     </header>
 </template>
@@ -28,7 +28,13 @@ import {store} from '../store'
         name: 'HeaderComponent',
         data (){
             return {
-                store
+                store,
+                text: ''
+            }
+        },
+        methods: {
+            search(){
+                store.options.params.query = this.text;
             }
         }
     }

@@ -2,10 +2,10 @@
   <div class="main-wrapper">
     <HeaderComponent/>
     <main>
-      <VideoComponent v-if="!store.list"/>
-      <div v-else>
-        <ContainerCardsComponent v-for="(el, index) in endpointsList" :endPoint="el"/>
-      </div>
+      <VideoComponent v-if="!store.options.params.query"/>
+      
+        <ContainerCardsComponent v-else v-for="(el, index) in endpointsList" :endPoint="el"/>
+      
     </main>
   </div>
 </template>
@@ -23,12 +23,7 @@ import VideoComponent from './components/VideoComponent.vue';
         store,
         endpointsList: ['/search/movie', '/search/tv']
       }
-    },
-    watch: {
-      'store.atClick'() {
-        store.list = true;
-      }
-    },
+    }
 }
 </script>
 

@@ -22,9 +22,8 @@ import {store} from '../store'
         }
     },
     watch: {
-        'store.atClick'() {
+        'store.options.params.query'() {
             this.getApi();
-            // this.listControl();
         }
     },
     props: ['endPoint'],
@@ -35,11 +34,7 @@ import {store} from '../store'
                 this.list = [...res.data.results];
                 console.log(res.data.results);
             })
-        }, 
-        // listControl(){
-        //     console.log('ok')
-        //     store.list = true;
-        // }
+        }
     },
     computed: {
         sectionTitle(){
@@ -49,6 +44,9 @@ import {store} from '../store'
                 return 'Movies'
             }
         }
+    },
+    created() {
+        this.getApi();
     }
 }
 </script>

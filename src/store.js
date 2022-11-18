@@ -14,7 +14,5 @@ export const store = reactive ({
         'Film',
         'Originali',
         'Aggiunti di recente'
-    ],
-    atClick: false,
-    list: false
+    ]
 })
