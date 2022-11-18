@@ -1,10 +1,10 @@
 <template>
     <div v-show="list.length" class="p-4">
-       <h2>{{sectionTitle}}</h2>
+        <h2>{{sectionTitle}}</h2>
     </div>
     <section>
         <CardComponent v-for="(item, index) in list" :key="index" :card="item"/>
-    </section>
+    </section>  
 </template>
 
 <script>

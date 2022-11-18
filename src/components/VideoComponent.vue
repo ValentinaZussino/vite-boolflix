@@ -1,9 +1,10 @@
 <template>
     <div class="vz_video">
-        <video src="/video/Particelle.mp4" autoplay muted loop></video>
+        <!-- <video src="/video/Particelle.mp4" autoplay muted loop></video> -->
         <div class="middle-txt">
-            <h1>future entertainment is here</h1>
+            <h1>new in boolflix</h1>
         </div>
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SWbxKwlc1Vc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </template>
 
@@ -27,9 +28,8 @@
 
     .middle-txt {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 9%;
+        left: 10px;
         z-index: 500;
         text-align: center;
 
@@ -38,7 +38,7 @@
             font-size: 47px;
             font-weight: bold;
             text-transform: capitalize;
-            text-shadow: 3px 1px 6px $title_red;
+            text-shadow: 3px 1px 4px rgb(132, 112, 112);
         }
     }
 }
